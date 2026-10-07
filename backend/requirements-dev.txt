@@ -1,0 +1,16 @@
+# Dependencias solo para desarrollo y testing (no se necesitan para
+# correr el backend en producción; ver requirements.txt para eso).
+#
+# Instalar con: pip install -r requirements.txt -r requirements-dev.txt
+
+pytest==9.1.1
+
+# httpx2 es lo que usa TestClient de FastAPI/Starlette actualmente.
+# (httpx ya está en requirements.txt: lo usa el backend para hablar con el escáner.)
+httpx2==2.7.0
+
+# Postgres real embebido para correr las pruebas de base de datos sin
+# instalar nada (opcional; ver "Pruebas con Postgres" en el README). Sin
+# esto, las pruebas de base de datos corren con SQLite y las específicas
+# de Postgres se omiten.
+pgserver==0.1.4

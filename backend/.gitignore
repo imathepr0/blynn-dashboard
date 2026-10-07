@@ -1,0 +1,13 @@
+# Backend Python de Blynn.
+# Este archivo vive DENTRO de backend/ porque el .gitignore de la raíz
+# (del frontend) ignora `.env.*`, lo que también ocultaría `.env.example`.
+
+.env
+!.env.example
+
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/

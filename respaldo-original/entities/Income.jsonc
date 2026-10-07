@@ -1,0 +1,43 @@
+{
+  "name": "Income",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Origen del ingreso (qui\u00e9n pag\u00f3)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Contexto o descripci\u00f3n"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Monto recibido"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del ingreso"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "sueldo",
+        "bono",
+        "transferencia",
+        "efectivo",
+        "otros"
+      ],
+      "default": "otros"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color hex del icono"
+    }
+  },
+  "required": [
+    "source",
+    "amount",
+    "date"
+  ]
+}

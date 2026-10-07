@@ -1,0 +1,11 @@
+tests/
+tools/
+migrations/
+alembic.ini
+pytest.ini
+requirements-dev.txt
+*.md
+.env
+.env.*
+*.db
+__pycache__/

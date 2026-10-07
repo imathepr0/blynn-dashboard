@@ -1,0 +1,27 @@
+{
+  "name": "Category",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nombre de la categor\u00eda"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color hex de la categor\u00eda"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Nombre del icono lucide"
+    },
+    "budget": {
+      "type": "number",
+      "description": "Presupuesto mensual",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "color"
+  ]
+}

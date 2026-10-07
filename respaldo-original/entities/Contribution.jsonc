@@ -1,0 +1,37 @@
+{
+  "name": "Contribution",
+  "type": "object",
+  "properties": {
+    "goal_id": {
+      "type": "string",
+      "description": "ID de la meta"
+    },
+    "goal_title": {
+      "type": "string",
+      "description": "Nombre de la meta"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Monto aportado"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del aporte"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "aprobado",
+        "auto"
+      ],
+      "description": "C\u00f3mo se realiz\u00f3 el aporte"
+    }
+  },
+  "required": [
+    "goal_id",
+    "amount",
+    "date"
+  ]
+}

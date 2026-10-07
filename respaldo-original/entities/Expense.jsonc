@@ -1,0 +1,57 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "merchant": {
+      "type": "string",
+      "description": "Comercio / tienda"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detalle del gasto (items con precio, uno por l\u00ednea)"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Monto en pesos"
+    },
+    "category": {
+      "type": "string",
+      "description": "Nombre de la categor\u00eda"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del gasto"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "efectivo",
+        "debito",
+        "credito",
+        "transferencia"
+      ],
+      "default": "debito"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color hex del icono"
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica si es un cobro recurrente mensual"
+    },
+    "recurring_active": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica si el cobro recurrente est\u00e1 activo"
+    }
+  },
+  "required": [
+    "merchant",
+    "amount",
+    "category",
+    "date"
+  ]
+}

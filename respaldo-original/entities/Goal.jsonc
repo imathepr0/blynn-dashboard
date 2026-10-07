@@ -1,0 +1,70 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Nombre de la meta"
+    },
+    "target_amount": {
+      "type": "number",
+      "description": "Monto objetivo"
+    },
+    "current_amount": {
+      "type": "number",
+      "description": "Monto actual ahorrado",
+      "default": 0
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha l\u00edmite"
+    },
+    "color": {
+      "type": "string",
+      "default": "#22c55e"
+    },
+    "contribution_mode": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "percent_surplus",
+        "fixed"
+      ],
+      "default": "manual",
+      "description": "C\u00f3mo se aporta a la meta"
+    },
+    "contribution_percent": {
+      "type": "number",
+      "description": "Porcentaje del excedente mensual a aportar"
+    },
+    "contribution_amount": {
+      "type": "number",
+      "description": "Monto fijo por aporte"
+    },
+    "contribution_frequency": {
+      "type": "string",
+      "enum": [
+        "dias",
+        "semanas",
+        "meses"
+      ],
+      "default": "meses",
+      "description": "Frecuencia del aporte autom\u00e1tico"
+    },
+    "next_contribution_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del pr\u00f3ximo aporte autom\u00e1tico"
+    },
+    "auto_approved_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Cantidad de aportes autom\u00e1ticos aprobados"
+    }
+  },
+  "required": [
+    "title",
+    "target_amount"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "onboarded": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica si el usuario complet\u00f3 la encuesta de bienvenida"
+    },
+    "monthly_budget": {
+      "type": "number",
+      "default": 0,
+      "description": "Presupuesto mensual total para gastar"
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "name": "User",
+  "type": "object"
+}
