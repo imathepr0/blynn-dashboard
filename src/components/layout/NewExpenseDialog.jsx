@@ -170,6 +170,13 @@ export default function NewExpenseDialog({ open, onOpenChange, onCreated, editEx
     setStep("choose");
   };
 
+  const openFilePicker = () => {
+    setScanError(null);
+    setStep("document");
+    // The input stays mounted so the browser opens the picker during the user's click.
+    fileInputRef.current?.click();
+  };
+
   const manualFromScan = () => {
     applyScanToForm(lowConfidence, true);
     navigate("/boletas");
@@ -197,6 +204,14 @@ export default function NewExpenseDialog({ open, onOpenChange, onCreated, editEx
             </div>
           </DialogHeader>
 
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            className="hidden"
+            onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ""; if (f) handleFile(f); }}
+          />
+
           <AnimatePresence mode="wait">
             {step === "choose" && (
               <motion.div key="choose" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="space-y-3 pt-2">
@@ -212,7 +227,7 @@ export default function NewExpenseDialog({ open, onOpenChange, onCreated, editEx
                     <button
                       key={opt.id}
                       onClick={() => {
-                        if (opt.id === "document") { setStep("document"); setTimeout(() => fileInputRef.current?.click(), 100); }
+                        if (opt.id === "document") openFilePicker();
                         else setStep("manual");
                       }}
                       className="w-full flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 group text-left"
@@ -232,7 +247,6 @@ export default function NewExpenseDialog({ open, onOpenChange, onCreated, editEx
 
             {step === "document" && (
               <motion.div key="document" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="py-8">
-                <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ""; if (f) handleFile(f); }} />
                 {docStatus === "processing" ? (
                   <div className="relative">
                     <ProcessingScreen type="boleta" done={scanDone} onComplete={finishScan} />
@@ -271,6 +285,9 @@ export default function NewExpenseDialog({ open, onOpenChange, onCreated, editEx
                   <div className="flex flex-col items-center gap-3 text-center">
                     <p className="text-slate-500 font-medium">Selecciona un archivo</p>
                     <p className="text-sm text-slate-400">Foto de tu boleta (JPG, PNG o WEBP)</p>
+                    <Button type="button" onClick={() => fileInputRef.current?.click()} className="mt-2 rounded-xl bg-emerald-500 hover:bg-emerald-600">
+                      Elegir foto
+                    </Button>
                   </div>
                 )}
               </motion.div>
