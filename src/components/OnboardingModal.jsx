@@ -111,7 +111,7 @@ export default function OnboardingModal({ onComplete }) {
         <div className="px-8 pt-7 pb-4">
           <div className="flex items-center gap-2 mb-1">
             <LogoMark className="w-7 h-7" />
-            <span className="text-xl font-bold font-heading text-slate-800 tracking-tighter">Blynn</span>
+            <span className="text-xl font-bold font-heading text-slate-800 tracking-tighter">lynn</span>
           </div>
           <div className="flex items-center gap-1.5 mt-3">
             {[0, 1].map((i) => (
